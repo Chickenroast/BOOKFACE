@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { ReactComponent as HideIcon } from "../Images/hide.svg";
-import { ReactComponent as ShowIcon } from "../Images/show.svg";
+import HideIcon from "../Images/HideIcon";
+import ShowIcon from "../Images/ShowIcon";
 
 enum FormState {
   First,
@@ -108,11 +108,7 @@ function Sign() {
                     className="absolute right-0 top-1/2 transform -translate-y-1/2 px-3"
                     onClick={handleShowPassword}
                   >
-                    {showPassword ? (
-                      <ShowIcon className="h-6 w-6" />
-                    ) : (
-                      <HideIcon className="h-6 w-6" />
-                    )}
+                    {showPassword ? <ShowIcon /> : <HideIcon />}
                   </button>
                 </div>
               </label>
@@ -136,7 +132,7 @@ function Sign() {
                     className="absolute right-0 top-1/2 transform -translate-y-1/2 px-3"
                     onClick={handleShowPassword}
                   >
-                    {showPassword ? "Hide" : "Show"}
+                    {showPassword ? <ShowIcon /> : <HideIcon />}
                   </button>
                 </div>
               </label>
