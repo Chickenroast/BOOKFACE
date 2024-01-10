@@ -1,7 +1,7 @@
 // Home.tsx
 import React from 'react';
 import Post from '../Components/Post';
-import postData from '../Components/Boss.json';
+import postData from '../Components/Boss.json'
 import NavTop from '../Components/NavTop';
 import Footer from '../Components/Footer';
 const Home: React.FC = () => {
