@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import HideIcon from "../Images/HideIcon";
-import ShowIcon from "../Images/ShowIcon";
-
 enum FormState {
   First,
   Second,
@@ -15,7 +12,7 @@ function Sign() {
     password: "",
     confirmPassword: "",
     tags: "",
-    profileImageType: "string", // 'string' or 'url'
+    profileImageType: "string", // 'string' or '"url'
     profileImage: "",
     name: "",
     bio: "",
@@ -57,17 +54,19 @@ function Sign() {
 
   return (
     <div className="bg-beigel w-screen h-screen">
-      <h1
-        style={{ fontFamily: "Quicksand, sans-serif" }}
-        className="p-5 text-5xl"
-      >
-        SIGNUP
-      </h1>
-      <p style={{ fontFamily: "Quicksand, sans-serif" }} className="p-5 pt-1">
-        Welcome, please insert all your information for the first form.
-      </p>
+      <div className="flex flex-col lg-mx-auto lg:items-center lg:justify-center">
+        <h1
+          style={{ fontFamily: "Quicksand, sans-serif" }}
+          className="p-5 text-5xl lg:mt-5"
+        >
+          SIGNUP
+        </h1>
+        <p style={{ fontFamily: "Quicksand, sans-serif" }} className="p-5 pt-1">
+          Welcome, please insert all your information for the first form.
+        </p>
+      </div>
       {formState === FormState.First && (
-        <div className="lg:mx-auto bg-beiged flex m-5 flex-col items-center justify-center rounded-lg max-w-lg">
+        <div className="lg:mx-auto bg-beiged flex m-5 flex-col items-center justify-center rounded-lg max-w-96">
           <form className="p-5" onSubmit={handleSubmitFirstForm}>
             {/* Render first form fields */}
             <div className="p-5">
@@ -108,7 +107,7 @@ function Sign() {
                     className="absolute right-0 top-1/2 transform -translate-y-1/2 px-3"
                     onClick={handleShowPassword}
                   >
-                    {showPassword ? <ShowIcon /> : <HideIcon />}
+                    {showPassword ? <img src="hide" /> : "Show"}
                   </button>
                 </div>
               </label>
@@ -132,7 +131,7 @@ function Sign() {
                     className="absolute right-0 top-1/2 transform -translate-y-1/2 px-3"
                     onClick={handleShowPassword}
                   >
-                    {showPassword ? <ShowIcon /> : <HideIcon />}
+                    {showPassword ? "Hide" : "Show"}
                   </button>
                 </div>
               </label>
