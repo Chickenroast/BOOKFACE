@@ -53,19 +53,19 @@ function Sign() {
   };
 
   return (
-    <div className="bg-beigel w-screen h-screen z-0">
-      <img src="shape1.svg" className="w-full h-full absolute z-0" />
-      <div className="z-20 flex flex-col lg-mx-auto lg:items-center lg:justify-center">
+    <div className=" w-screen h-screen">
+      <img src="shape1.svg" className="w-full h-full absolute z-[-10] bg-beigel" />
+      <div className=" flex flex-col lg-mx-auto lg:items-center lg:justify-center">
         <h1 className="p-5 text-5xl lg:mt-5 font-quicksand">SIGNUP</h1>
         <p className="p-5 pt-1 font-quicksand">
           Welcome, please insert all your information for the first form.
         </p>
       </div>
       {formState === FormState.First && (
-        <div className="z-20 lg:mx-auto bg-beiged flex m-5 flex-col items-center justify-center rounded-lg max-w-96">
-          <form className="z-20 p-5" onSubmit={handleSubmitFirstForm}>
+        <div className=" lg:mx-auto bg-beiged flex m-5 flex-col items-center justify-center rounded-lg max-w-96">
+          <form className=" p-5" onSubmit={handleSubmitFirstForm}>
             {/* Render first form fields */}
-            <div className="z-20 p-5">
+            <div className=" p-5">
               <label className="text-lg block">
                 Email:
                 <input
