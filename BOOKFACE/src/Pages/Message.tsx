@@ -33,12 +33,12 @@ const MessageDashboard: React.FC = () => {
         </div>
       </div>
 
-      {/* Dashboard */}
+      {/* Dashboard Mobile */}
 
       <h2 className="text-center  mb-2 lg:hidden">Message Dashboard</h2>
       {conversations.map((conversation) => (
         <Link key={conversation.id} to={`/conversation/${conversation.id}`}>
-          <div className="bg-beiged w-96 lg:w-auto h-28 pl-2 rounded-2xl flex items-center mt-5 mx-5">
+          <div className="bg-beiged w-96 lg:w-auot h-28 pl-2 rounded-2xl flex items-center mt-5 mx-5">
            <h1> Conversation between: {conversation.participants.join(", ")}</h1>
           </div>
         </Link>

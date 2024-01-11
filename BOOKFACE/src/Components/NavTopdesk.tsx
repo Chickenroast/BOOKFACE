@@ -3,7 +3,7 @@ import { IoIosNotifications } from "react-icons/io";
 import { NavLink } from "react-router-dom";
 function NavTopdesk() {
   return (
-    <div className="absolute top-0 left-0 right-0 h-16 items-center justify-between px-4 lg:mx-28 hidden lg:flex">
+    <div className="absolute top-0 left-0 right-0 h-14 hidden justify-between items-center px-4 lg:mx-80 lg:flex ">
       <img src="logo.svg" alt="" className="w-12 h-12 lg:ml-2" />
 
       <div className="flex flex-row h-full w-1/2 items-center justify-evenly">

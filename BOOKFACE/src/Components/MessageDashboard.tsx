@@ -1,32 +1,38 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+// MessageDashboard.tsx Desktop
+import React, { useState, useEffect } from "react";
 
-// Define a Conversation interface
+
+export interface MessageDashboardProps {
+  onConversationSelect: (conversationId: number) => void;
+}
+
 interface Conversation {
   id: number;
   participants: string[];
 }
 
-const MessageDashboard: React.FC = () => {
+const MessageDashboard: React.FC<MessageDashboardProps> = ({
+  onConversationSelect,
+}) => {
   const [conversations, setConversations] = useState<Conversation[]>([]);
 
   useEffect(() => {
     // Fetch the conversations from the JSON file
-    fetch('http://localhost:3000/conversations')
+    fetch("http://localhost:3000/conversations")
       .then((response) => response.json())
       .then((data) => setConversations(data))
-      .catch((error) => console.error('Error fetching conversations:', error));
+      .catch((error) => console.error("Error fetching conversations:", error));
   }, []);
 
   return (
-    <div >
-      <h2>Message Dashboard</h2>
+    <div className="bg-beiged rounded-2xl my-2">
+      <h2>Message Dashboard dadadada</h2>
       {conversations.map((conversation) => (
-        <Link key={conversation.id} to={`/messages/${conversation.id}`}>
-          <div>
-            Conversation between: {conversation.participants.join(', ')}
+        <div key={conversation.id}>
+          <div onClick={() => onConversationSelect(conversation.id)}>
+            Conversation between: {conversation.participants.join(", ")}
           </div>
-        </Link>
+        </div>
       ))}
     </div>
   );

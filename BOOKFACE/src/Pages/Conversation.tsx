@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Footer from '../Components/Footer';
+
 interface Message {
   id: number;
   user: string;
@@ -95,7 +96,7 @@ const ConversationComponent: React.FC = () => {
       ) : (
         <div>No conversation selected.</div>
       )}
-      < Footer />
+      <Footer />
     </div>
   );
 };

@@ -57,7 +57,7 @@ function Post({ postData }: PostProps) {
       </span>
 
       {/* Post Photo */}
-      <div className="w-full h-[200px] lg:h-[400px] mt-2">
+      <div className="w-full h-[200px] lg:h-[80%] mt-2">
         <img
           src={photo}
           alt={`Post by ${user.name}`}
