@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import ImageUpload from "../Components/FileUpload";
 enum FormState {
   First,
   Second,
@@ -222,6 +222,7 @@ function Sign() {
           </div>
         </div>
       )}
+      <ImageUpload />
     </div>
   );
 }
