@@ -36,7 +36,7 @@ function Post({ postData }: PostProps) {
   const { user, tag, date, hour, photo, buttons } = postData;
 
   return (
-    <div className="h-[50vh] w-[90vw] bg-beiged rounded-2xl flex flex-col items-center m-2 p-4 pb-2">
+    <div className="h-[40vh] w-[90vw] bg-beiged rounded-2xl flex flex-col items-center m-2 p-4 pb-2 lg:w-[60vw] lg:h-[80vh]">
       {/* User Information */}
       <div className="flex flex-row space-x-2 self-start">
         <img
@@ -57,7 +57,7 @@ function Post({ postData }: PostProps) {
       </span>
 
       {/* Post Photo */}
-      <div className="w-full h-[200px] mt-2">
+      <div className="w-full h-[200px] lg:h-[400px] mt-2">
         <img
           src={photo}
           alt={`Post by ${user.name}`}

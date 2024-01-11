@@ -6,11 +6,15 @@ import Sign from './Pages/Sign';
 import Message from './Pages/Message';
 import Profil from './Pages/Profil';
 import Error404 from './Pages/Error404';
+import Conversation from './Pages/Conversation';
+import MessageDashboard from './Pages/Message';
 
 const App: React.FC = () => {
   return (
     <Router>
       <Routes>
+        <Route path="/message" element={<MessageDashboard />} />
+        <Route path="/conversation/:conversationId" element={<Conversation />} />
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/sign" element={<Sign />} />
