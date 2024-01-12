@@ -36,41 +36,41 @@ function Post({ postData }: PostProps) {
   const { user, tag, date, hour, photo, buttons } = postData;
 
   return (
-    <div className="h-[40vh] w-[90vw] bg-beiged rounded-2xl flex flex-col items-center m-2 p-4 pb-2 lg:w-[60vw] lg:h-[80vh]">
+    <div className="mx-4 my-2 flex h-[50vh] w-[90vw] flex-col shadow-md items-center justify-center rounded-2xl bg-beiged p-4 pb-2 lg:h-[80vh] lg:w-[60vw]">
       {/* User Information */}
       <div className="flex flex-row space-x-2 self-start">
         <img
           src={user.profilePhoto}
           alt={`${user.username}'s profile`}
-          className="w-10 h-10 object-cover rounded-full"
+          className="h-10 w-10 rounded-full object-cover"
         />
-        <div className="text-sm flex flex-col font-semibold">
+        <div className="flex flex-col text-sm font-semibold">
           {user.username}
           <span className="text-sm text-gray-500">#{tag}</span>
         </div>
       </div>
 
       {/* Date and Hour */}
-      <span className="text-sm w-[90%] flex flex-row justify-between mt-5">
+      <span className="mt-2 flex w-[90%] flex-row justify-between text-xs opacity-40">
         <span>{date}</span>
         <span>{hour}</span>
       </span>
 
       {/* Post Photo */}
-      <div className="w-full h-[200px] lg:h-[80%] mt-2">
+      <div className="mt-1 h-2/3 w-full lg:h-[80%]">
         <img
           src={photo}
           alt={`Post by ${user.name}`}
-          className="object-cover w-full h-full rounded-2xl"
+          className="shadow-lg h-full w-full rounded-2xl object-cover"
         />
       </div>
 
       {/* Action Buttons */}
-      <div className="flex items-start justify-start self-start w-full mt-3">
+      <div className="mt-3 flex w-full items-start justify-start self-start">
         {buttons.map((button: Button) => (
           <button
             key={button.id}
-            className="text-brownl hover:text-brownd focus:outline-none rounded-full bg-beigel p-2 mr-2 flex items-center justify-center"
+            className="mr-2 flex items-center justify-center rounded-full bg-beigel p-2 text-brownl hover:text-brownd focus:outline-none"
           >
             {button.id === "saveButton" && <FaBookmark className="text-sm" />}
             {button.id === "sendMessageButton" && (

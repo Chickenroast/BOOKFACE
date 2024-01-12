@@ -8,11 +8,11 @@
   "conversations": [
     {
       "id": 1,
-      "participants": ["johndoe", "johnwick"],
+      "participants": ["aliceee", "johnwick"],
       "messages": [
-        {"id": 1, "user": "johndoe", "text": "Hi how are u ?"},
+        {"id": 1, "user": "aliceee", "text": "Hi how are u ?"},
         {"id": 2, "user": "johnwick", "text": "hi i'm good what about u ?"},
-        {"id": 3, "user": "johndoe", "text": "I am good, i'm working on a project ?"},
+        {"id": 3, "user": "aliceee", "text": "I am good, i'm working on a project ?"},
         {"id": 4, "user": "johnwick", "text": "Glad to hear that ?"}
       ]
     },

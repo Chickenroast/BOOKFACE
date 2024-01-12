@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import Footer from '../Components/Footer';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import Footer from "../Components/Footer";
 
 interface Message {
   id: number;
@@ -31,27 +31,27 @@ const ConversationComponent: React.FC = () => {
 
   useEffect(() => {
     // Fetch conversations from the server
-    fetch('http://localhost:3000/conversations')
+    fetch("http://localhost:3000/conversations")
       .then((response) => response.json())
       .then((data) => {
         setConversations(data);
         setLoading(false);
       })
       .catch((error) => {
-        setError('Error fetching conversations');
-        console.error('Error fetching conversations:', error);
+        setError("Error fetching conversations");
+        console.error("Error fetching conversations:", error);
         setLoading(false);
       });
 
     // Fetch users from the server
-    fetch('http://localhost:3000/users')
+    fetch("http://localhost:3000/users")
       .then((response) => response.json())
       .then((data) => {
         setUsers(data);
       })
       .catch((error) => {
-        setError('Error fetching users');
-        console.error('Error fetching users:', error);
+        setError("Error fetching users");
+        console.error("Error fetching users:", error);
       });
   }, []);
 
@@ -64,25 +64,35 @@ const ConversationComponent: React.FC = () => {
   }
 
   // Find the selected conversation based on the URL parameter
-  const selectedConversation = conversations.find((conv) => conv.id === parseInt(conversationId || '', 10));
+  const selectedConversation = conversations.find(
+    (conv) => conv.id === parseInt(conversationId || "", 10),
+  );
 
   return (
-    <div className='h-screen w-screen bg-beigel px-5'>
+    <div className="h-screen w-screen bg-beigel px-5">
       {selectedConversation ? (
         <div key={selectedConversation.id}>
           <h2>Conversation {selectedConversation.id}</h2>
           {selectedConversation.participants.length > 0 ? (
             <div>
               {selectedConversation.messages
-                .filter((message) => selectedConversation.participants.includes(message.user))
+                .filter((message) =>
+                  selectedConversation.participants.includes(message.user),
+                )
                 .map((message) => {
                   const user = users.find((u) => u.username === message.user);
                   return (
-                    <div key={message.id} className='flex items-center mt-10'>
+                    <div key={message.id} className="mt-10 flex items-center">
                       {user && (
                         <>
-                          <img src={user.profilePhoto} alt={user.username} className='h-10 w-10 rounded-full mr-5' />
-                          <div className='bg-beiged w-80 rounded-3xl h-min py-5 flex items-center pl-4'>{message.text}</div>
+                          <img
+                            src={user.profilePhoto}
+                            alt={user.username}
+                            className="mr-5 h-10 w-10 rounded-full"
+                          />
+                          <div className="flex h-min w-80 items-center rounded-3xl bg-beiged py-5 pl-4">
+                            {message.text}
+                          </div>
                         </>
                       )}
                     </div>
