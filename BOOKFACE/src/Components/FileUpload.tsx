@@ -21,9 +21,12 @@ const ImageUpload: React.FC = () => {
     setProgress(0);
     if (!currentImage) return;
 
-    UploadService.upload(currentImage, (event: any) => {
-      setProgress(Math.round((100 * event.loaded) / event.total));
-    })
+    //Name file
+    const generatedFileName = `image_${Date.now()}_${Math.floor(
+      Math.random() * 1000
+    )}`;
+
+    UploadService.upload(currentImage, generatedFileName)
       .then((response) => {
         setMessage(response.data.message);
         return UploadService.getFiles();
@@ -59,29 +62,35 @@ const ImageUpload: React.FC = () => {
   }, []);
 
   return (
-    <div>
-      <div className="row">
-        <div className="col-8">
-          <label className="btn btn-default p-0">
-            <input type="file" accept="image/*" onChange={selectImage} />
+    <div className="">
+      <div>
+        <div>
+          <label className="flex items-center justify-center relative overflow-hidden bg-brownd text-white font-semibold p-3 rounded-md cursor-pointer hover:bg-brownl">
+            <input
+              type="file"
+              className="opacity-0 absolute inset-0 w-full h-full cursor-pointer"
+              accept="image/*"
+              onChange={selectImage}
+            />
+            <span className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden">
+              Upload
+            </span>
           </label>
         </div>
 
-        <div className="col-4">
+        <div className="w-1">
           <button
-            className="btn btn-success btn-sm"
+            className=""
             disabled={!currentImage}
             onClick={upload}
-          >
-            Upload
-          </button>
+          ></button>
         </div>
       </div>
 
       {currentImage && progress > 0 && (
-        <div className="progress my-3">
+        <div className="">
           <div
-            className="progress-bar progress-bar-info"
+            className=""
             role="progressbar"
             aria-valuenow={progress}
             aria-valuemin={0}
@@ -94,8 +103,12 @@ const ImageUpload: React.FC = () => {
       )}
 
       {previewImage && (
-        <div>
-          <img className="preview" src={previewImage} alt="" />
+        <div className="rounded-full overflow-hidden w-48 h-48">
+          <img
+            className="w-full h-full object-cover"
+            src={previewImage}
+            alt=""
+          />
         </div>
       )}
 
@@ -106,15 +119,12 @@ const ImageUpload: React.FC = () => {
       )}
 
       {imageInfos.length > 0 && (
-        <div className="card mt-3">
-          <div className="card-header">List of Images</div>
-          <ul className="list-group list-group-flush">
+        <div className="opacity-0 mt-3">
+          <div className="opacity-0">List of Images</div>
+          <ul className="opacity-0 list-group list-group-flush">
             {imageInfos.map((img: IFile, index: number) => (
               <li className="list-group-item" key={index}>
-                <p>
-                  <a href={img.url}>{img.name}</a>
-                </p>
-                <img src={img.url} alt={img.name} height="80px" />
+                <img src={img.url} height="80px" />
               </li>
             ))}
           </ul>

@@ -189,6 +189,9 @@ function Sign() {
                     onChange={handleChange}
                     className="w-full bg-beigel rounded-lg mt-1 px-3 py-2 text-sm"
                   />
+                  <div className="w-full mt-4 bg-beigel rounded-lg mt-1 px-3 py-2 text-sm">
+                    <ImageUpload />
+                  </div>
                 </label>
                 <label className="text-lg block mt-3">
                   Name:
@@ -222,7 +225,6 @@ function Sign() {
           </div>
         </div>
       )}
-      <ImageUpload />
     </div>
   );
 }
