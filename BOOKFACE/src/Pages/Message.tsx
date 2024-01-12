@@ -52,6 +52,7 @@ const MessageDashboard: React.FC = () => {
   };
 
   return (
+
     <div className="flex h-screen w-screen flex-col items-center overflow-x-hidden bg-beiged py-20 lg:my-2 lg:w-full lg:rounded-2xl lg:bg-beiged lg:py-0 lg:shadow-md">
       <div className="fixed left-0 right-0 top-0 flex h-14 w-screen items-center bg-beigel px-4 lg:hidden">
         <img src="logo.svg" alt="" className="h-12 w-12" />
