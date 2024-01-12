@@ -4,10 +4,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        brownd: "#1A120B",
-        brownl: "#3C2A21",
-        beiged: "#d3c1a0",
-        beigel: "#E5E5CB",
+         brownd: '#1A120B',
+        brownl: '#3E2723',
+        beiged: '#F8F4E1',
+        beigel: '#E5E5CB',
       },
       fontFamily: {
         quicksand: "Quicksand, sans-serif",

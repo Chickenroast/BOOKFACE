@@ -1,0 +1,57 @@
+{
+  "messages": [
+    {"id": 1, "user": "johndoe", "text": "Hello, how are you?"},
+    {"id": 2, "user": "johnwick", "text": "Hi! I'm doing well, thanks."},
+    {"id": 3, "user": "aliceee", "text": "Hey there!"},
+    {"id": 4, "user": "bobby", "text": "I'm good, thanks."}
+  ],
+  "conversations": [
+    {
+      "id": 1,
+      "participants": ["aliceee", "johnwick"],
+      "messages": [
+        {"id": 1, "user": "aliceee", "text": "Hi how are u ?"},
+        {"id": 2, "user": "johnwick", "text": "hi i'm good what about u ?"},
+        {"id": 3, "user": "aliceee", "text": "I am good, i'm working on a project ?"},
+        {"id": 4, "user": "johnwick", "text": "Glad to hear that ?"}
+      ]
+    },
+    {
+      "id": 2,
+      "participants": ["aliceee", "bobby"],
+      "messages": [
+        {"id": 7, "user": "aliceee", "text": "Hello Bob i like ur poetry"},
+        {"id": 8, "user": "bobby", "text": "Hi! Alice, thank you, glad to hear that !"},
+        {"id": 9, "user": "bobby", "text": "i also like your art !"},
+        {"id": 10, "user": "aliceee", "text": "Thank you so much ! Let me know when u will post your next poetry ! Have a nice day"},
+        {"id": 11, "user": "bobby", "text": "Okay ! Have a nice day to !"}
+      ]
+    }
+  ],
+  "users": [
+    {
+      "userId": 123,
+      "username": "johndoe",
+      "name": "John Doe",
+      "profilePhoto": "https://www.fbi.gov/wanted/vicap/unidentified-persons/john-doe-21/johndoeyork2.jpg"
+    },
+    {
+      "userId": 456,
+      "username": "johnwick",
+      "name": "John Wick",
+      "profilePhoto": "https://cdn.openart.ai/stable_diffusion/5fe7b811ff1e631da4e46296bdcac4c4bfceeff1_2000x2000.webp"
+    },
+    {
+      "userId": 789,
+      "username": "aliceee",
+      "name": "Alice Johnson",
+      "profilePhoto": "https://expertphotography.b-cdn.net/wp-content/uploads/2018/10/cool-profile-picture-natural-light.jpg"
+    },
+    {
+      "userId": 101,
+      "username": "bobby",
+      "name": "Bob Smith",
+      "profilePhoto": "https://www.nysoclib.org/sites/default/files/events/CharlieSmith_Headshot_Rev.jpg"
+    }
+  ]
+}
