@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Footer from "../Components/Footer";
+import { IoCloseCircleOutline } from "react-icons/io5";
 
 interface Conversation {
   id: number;
@@ -52,8 +53,7 @@ const MessageDashboard: React.FC = () => {
   };
 
   return (
-
-    <div className="flex h-screen w-screen flex-col items-center overflow-x-hidden bg-beiged py-20 lg:my-2 lg:w-full lg:rounded-2xl lg:bg-beiged lg:py-0 lg:shadow-md">
+    <div className="lg:m  mt-2 flex h-[90vh] w-full flex-col items-center overflow-x-hidden bg-beiged py-20 lg:rounded-2xl lg:bg-beiged lg:py-0 lg:shadow-md">
       <div className="fixed left-0 right-0 top-0 flex h-14 w-screen items-center bg-beigel px-4 lg:hidden">
         <img src="logo.svg" alt="" className="h-12 w-12" />
         <div className="ml-4 flex-grow">
@@ -68,11 +68,11 @@ const MessageDashboard: React.FC = () => {
       <h2 className="mb-2 text-center lg:hidden">Message Dashboard</h2>
       {conversations.map((conversation) => (
         <div
-          className=""
+          className="w-full"
           key={conversation.id}
           onClick={() => handleConversationClick(conversation)}
         >
-          <div className="mx-5 mt-5 flex h-28 w-96 items-center rounded-2xl bg-beigel pl-2 shadow-md">
+          <div className="mx-5 mt-5 flex h-28 items-center justify-center rounded-2xl bg-beigel pl-2 shadow-md">
             <h1>
               Conversation between: {conversation.participants.join(", ")}
             </h1>
@@ -81,16 +81,13 @@ const MessageDashboard: React.FC = () => {
       ))}
 
       {!isMobile && selectedConversation && isConversationOpen && (
-        <div className="absolute rounded-2xl left-20 h-full w-[64%] bg-beiged text-brownl overflow-y-auto">
+        <div className="fixed bottom-5 right-5 h-[50%] w-[20%] rounded-3xl bg-brownd  py-5">
           <button
-            className="text-brownl absolute right-5 ml-2 mt-2 p-3 rounded-full bg-beigel"
+            className="absolute right-2 top-2 rounded-full text-3xl text-beigel"
             onClick={closeConversation}
-          >
-            x
-          </button>
+          ><IoCloseCircleOutline /></button>
 
-          <div className="p-4">
-            <h1>Conversation details for {selectedConversation.id}</h1>
+          <div className="h-full scrollbar-none overflow-y-scroll p-4">
             {selectedConversation.messages &&
             selectedConversation.messages.length > 0 ? (
               selectedConversation.messages.map((message) => {
@@ -110,8 +107,8 @@ const MessageDashboard: React.FC = () => {
                         <div
                           className={`flex flex-row items-center rounded-2xl p-2 ${
                             isCurrentUser
-                              ? "flex-row-reverse text-right"
-                              : "text-left"
+                              ? "flex-row-reverse "
+                              : ""
                           }`}
                         >
                           <img
@@ -123,10 +120,10 @@ const MessageDashboard: React.FC = () => {
                             }`}
                           />
                           <p
-                            className={`m-2 mb-10 bg-beigel px-5 py-2 text-lg shadow-md  ${
+                            className={`m-2 mb-10 bg-beigel px-5 py-2 flex w-[80%]  text-lg shadow-md  ${
                               isCurrentUser
-                                ? "rounded-l-full rounded-t-full"
-                                : "rounded-r-full rounded-t-full  bg-brownd text-beigel"
+                                ? "rounded-l-full rounded-t-full bg-brownl text-beigel"
+                                : "rounded-r-full rounded-t-full text-brownl "
                             }`}
                           >
                             {`${message.text}`}
@@ -144,7 +141,7 @@ const MessageDashboard: React.FC = () => {
             <input
               type="text"
               placeholder="Type a message"
-              className="absolute bottom-5 h-10 w-[95%] rounded-full self-center bg-brownd p-5 text-beiged placeholder-beigel"
+              className="absolute bottom-2 h-10 w-[90%] self-center justify-self-end rounded-full bg-brownl p-5 text-beiged placeholder-beigel"
             />
           </div>
         </div>

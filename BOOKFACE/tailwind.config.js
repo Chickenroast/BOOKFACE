@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      screens: {
+        '3xl': '2000px',
+      },
       colors: {
          brownd: '#1A120B',
         brownl: '#3E2723',
@@ -14,5 +17,7 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require ('tailwind-scrollbar'),
+],
 };

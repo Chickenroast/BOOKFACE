@@ -5,20 +5,23 @@ import postData from "../Components/Boss.json";
 import NavTop from "../Components/NavTop";
 import Footer from "../Components/Footer";
 import MessageDashboard from "./Message";
-
 import NavTopdesk from "../Components/NavTopdesk";
+
 const Home: React.FC = () => {
   return (
-    <div className="h-max-[100vh] flex flex-col items-center  py-16 lg:mx-32 lg:items-center">
+    <div className="h-screen flex flex-col items-center pt-16 lg:mx-28 overflow-scroll lg:overflow-hidden">
       <NavTop />
-      <NavTopdesk />
+      < NavTopdesk />
+    
 
       {/* Main content container */}
 
-      <main className="flex flex-row w-full">
-        <div className="flex">
+      <main className="flex flex-row w-full ">
+        
+        <div className="flex lg:w-[70vw] ">
+          
           {/* Post components */}
-          <div className="flex flex-col">
+          <div className="flex lg:h-[92vh] flex-col  w-full scrollbar-none overflow-y-scroll">
             {postData.map((post, index) => (
               <Post key={index} postData={post} />
             ))}
@@ -26,8 +29,8 @@ const Home: React.FC = () => {
         </div>
 
         {/* Dashboard Chat */}
-
-        <aside className="hidden lg:flex w-full">
+    
+        <aside className="hidden w-[30vw] lg:flex overflow-hidden">
           <MessageDashboard />
         </aside>
       </main>
