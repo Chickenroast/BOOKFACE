@@ -1,9 +1,24 @@
-import React, { useState } from "react";
-import ImageUpload from "../Components/FileUpload";
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
+
+
+import Select from 'react-select';
+import { tags } from '../tags.ts';
+
 enum FormState {
   First,
   Second,
 }
+
+interface Tag {
+  value: string;
+  label: string;
+}
+
+const tagOptions: Tag[] = tags.map((tag: string) => ({
+  value: tag,
+  label: tag,
+}));
 
 function Sign() {
   const [formState, setFormState] = useState<FormState>(FormState.First);
@@ -12,23 +27,46 @@ function Sign() {
     username: "",
     password: "",
     confirmPassword: "",
-    tags: "",
+     selectedTags: [] as string[],
     profileImageType: "string",
     profileImage: "",
     name: "",
     bio: "",
   });
 
+
+console.log(formData)
+
   const [passwordsMatch, setPasswordsMatch] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
+
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
+    const { name, type } = e.target;
+  
+    if (type === 'select-multiple') {
+      // Use type assertion to inform TypeScript about the type of the element
+      const selectElement = e.target as HTMLSelectElement;
+  
+      // Get the selected options and create an array of values
+      const selectedOptions: string[] = [];
+      for (let i = 0; i < selectElement.options.length; i++) {
+        if (selectElement.options[i].selected) {
+          selectedOptions.push(selectElement.options[i].value);
+        }
+      }
+  
+      setFormData((prevData) => ({ ...prevData, [name]: selectedOptions }));
+    } else {
+      // For other input types, handle normally
+      const { value } = e.target;
+      setFormData((prevData) => ({ ...prevData, [name]: value }));
+    }
   };
 
+  
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
   };
@@ -52,6 +90,7 @@ function Sign() {
     // If validation passes, you can submit the complete form
     console.log("Submitting complete form:", formData);
   };
+
 
   return (
     <div className="w-screen h-screen">
@@ -161,39 +200,27 @@ function Sign() {
         </div>
       )}
 
-      {formState === FormState.Second && (
-        <div className="flex flex-col md:items-center md:justify-center">
-          <p className="p-5 pt-1 font-quicksand">
-            Now, please insert additional information for the second form.
-          </p>
-          <div className="lg:mx-auto bg-beiged flex m-5 flex-col items-center justify-center rounded-lg ">
-            <form className="p-5" onSubmit={handleSubmitSecondForm}>
-              <div className=" p-5">
-                <label className="text-lg block">
-                  Select your Tags:
-                  <input
-                    type="text"
-                    name="tags"
-                    value={formData.tags}
-                    onChange={handleChange}
-                    className="w-full bg-beigel rounded-lg mt-1 px-3 py-2 text-sm"
-                  />
-                </label>
-
-                <label className="text-lg block mt-3">
-                  Profil Image:
-                  <input
-                    type="text"
-                    name="profil image"
-                    value={formData.profileImage}
-                    onChange={handleChange}
-                    className="w-full bg-beigel rounded-lg mt-1 px-3 py-2 text-sm"
-                  />
-                  <div className="w-full mt-4 bg-beigel rounded-lg mt-1 px-3 py-2 text-sm">
-                    <ImageUpload />
-                  </div>
-                </label>
-                <label className="text-lg block mt-3">
+{formState === FormState.Second && (
+      <div className="flex flex-col md:items-center md:justify-center">
+        <p className="p-5 pt-1 font-quicksand">
+          Now, please insert additional information for the second form.
+        </p>
+        <div className="lg:mx-auto bg-beiged flex m-5 flex-col items-center justify-center rounded-lg ">
+          <form className="p-5" onSubmit={handleSubmitSecondForm}>
+            <div className="p-5">
+              
+  <label className="text-lg block">
+    Select your Tags
+      <Select
+  defaultValue={tagOptions.slice(2, 4)} // Adjust the slice as needed
+  isMulti
+  name="colors"
+  options={tagOptions}
+  className="basic-multi-select"
+  classNamePrefix="select"
+/>
+  </label>
+              <label className="text-lg block mt-3">
                   Name:
                   <input
                     type="text"
