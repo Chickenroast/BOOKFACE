@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import Select from "react-select";
 import { tags } from "../tags.ts";
+import { Link } from "react-router-dom";
 
 enum FormState {
   First,
@@ -198,6 +199,9 @@ function Sign() {
                 >
                   Next
                 </button>
+              </div>
+              <div className="p-5 text-sm">
+                <Link to="/login">You have an account? Login in here</Link>
               </div>
             </form>
           </div>
