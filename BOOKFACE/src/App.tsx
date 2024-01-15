@@ -8,11 +8,12 @@ import Profil from './Pages/Profil';
 import Error404 from './Pages/Error404';
 import Conversation from './Pages/Conversation';
 import MessageDashboard from './Pages/Message';
-
+import Presenation from './Pages/Presentation/Presenation';
 const App: React.FC = () => {
   return (
     <Router>
       <Routes>
+        <Route path="/p" element={<Presenation />} />
         <Route path="/message" element={<MessageDashboard />} />
         <Route path="/conversation/:conversationId" element={<Conversation />} />
         <Route path="/" element={<Home />} />
