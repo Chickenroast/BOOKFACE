@@ -2,7 +2,7 @@ import React from "react";
 
 function NavTop() {
   return (
-    <div className="fixed left-0 right-0 top-0 flex h-14 items-center bg-beiged  px-4 lg:mx-28 lg:hidden">
+    <div className="fixed left-0 right-0 top-0 flex h-14 items-center bg-beiged px-[5vw] lg:mx-28 lg:hidden">
       <img src="logo.svg" alt="" className="h-12 w-12 lg:ml-2" />
 
       <div className="ml-4 flex-grow">
