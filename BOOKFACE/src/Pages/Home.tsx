@@ -9,19 +9,19 @@ import NavTopdesk from "../Components/NavTopdesk";
 
 const Home: React.FC = () => {
   return (
-    <div className="h-screen flex flex-col items-center pt-16 lg:mx-28 overflow-scroll lg:overflow-hidden">
+    <div className="h-screen flex flex-col items-center  pt-16 lg:mx-28 overflow-y-scroll lg:overflow-hidden">
       <NavTop />
       < NavTopdesk />
     
 
       {/* Main content container */}
 
-      <main className="flex flex-row w-full ">
+      <main className="flex flex-row w-full justify-center">
         
         <div className="flex lg:w-[70vw] ">
           
           {/* Post components */}
-          <div className="flex lg:h-[92vh] flex-col  w-full scrollbar-none overflow-y-scroll">
+          <div className="flex lg:h-[90vh] flex-col w-full scrollbar-none lg:overflow-y-scroll">
             {postData.map((post, index) => (
               <Post key={index} postData={post} />
             ))}

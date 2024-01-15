@@ -53,7 +53,7 @@ const MessageDashboard: React.FC = () => {
   };
 
   return (
-    <div className="lg:m  mt-2 flex h-[90vh] w-full flex-col items-center overflow-x-hidden bg-beiged py-20 lg:rounded-2xl lg:bg-beiged lg:py-0 lg:shadow-md">
+    <div className="lg:mt-2 mt-2 flex h-[88vh] w-full flex-col items-center overflow-x-hidden bg-beiged py-20 lg:rounded-2xl lg:bg-beiged lg:py-0 lg:shadow-md">
       <div className="fixed left-0 right-0 top-0 flex h-14 w-screen items-center bg-beigel px-4 lg:hidden">
         <img src="logo.svg" alt="" className="h-12 w-12" />
         <div className="ml-4 flex-grow">
@@ -72,7 +72,7 @@ const MessageDashboard: React.FC = () => {
           key={conversation.id}
           onClick={() => handleConversationClick(conversation)}
         >
-          <div className="mx-5 mt-5 flex h-28 items-center justify-center rounded-2xl bg-beigel pl-2 shadow-md">
+          <div className="mx-5 mt-5 flex h-28 items-center justify-center rounded-2xl bg-beigel shadow-md">
             <h1>
               Conversation between: {conversation.participants.join(", ")}
             </h1>

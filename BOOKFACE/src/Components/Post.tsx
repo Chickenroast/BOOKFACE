@@ -36,7 +36,7 @@ function Post({ postData }: PostProps) {
   const { user, tag, date, hour, photo, buttons } = postData;
 
   return (
-    <div className="mx-4 my-2 flex h-[50vh] w-[90vw] flex-col shadow-md items-center justify-center rounded-2xl bg-beiged px-4 lg:h-[70vh] lg:w-auto">
+    <div className="mx-4 my-2 py-2 flex h-[50vh] w-[90vw] flex-col shadow-md items-center justify-center rounded-2xl bg-beiged px-4 lg:h-[70vh] lg:w-auto">
       {/* User Information */}
       <div className="flex flex-row space-x-2 self-start">
         <img

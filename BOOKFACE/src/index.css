@@ -8,3 +8,11 @@ body{
     height: 100vh;
     overflow: hidden;
 }
+
+@media (max-width: 768px) {
+body{
+    height: auto;
+    overflow: scroll;
+    padding-bottom: 100px;
+}
+}
