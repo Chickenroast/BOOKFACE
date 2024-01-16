@@ -36,34 +36,33 @@ function Post({ postData }: PostProps) {
   const { user, tag, date, hour, photo, buttons } = postData;
 
   return (
-    <div className="mx-4 my-2 py-2 flex h-[50vh] w-[90vw] flex-col shadow-md items-center justify-center rounded-2xl bg-beiged px-4 lg:h-[70vh] lg:w-auto">
+    <div className="mx-4 my-2 flex h-[50vh] w-[90vw] flex-col items-center justify-center rounded-2xl bg-beiged px-4 py-2 shadow-md lg:h-[70vh] lg:w-auto">
       {/* User Information */}
       <div className="flex flex-row space-x-2 self-start">
         <img
           src={user.profilePhoto}
           alt={`${user.username}'s profile`}
-          className="h-10 w-10 lg:h-14 lg:w-14 rounded-full object-cover"
+          className="h-10 w-10 rounded-full object-cover lg:h-14 lg:w-14"
         />
-        <div className="flex flex-col text-sm lg:text-lg font-semibold">
+        <div className="flex flex-col text-sm font-semibold lg:text-lg">
           {user.username}
           <span className="text-sm text-gray-500">#{tag}</span>
         </div>
       </div>
 
       {/* Date and Hour */}
-      <span className="mt-2 lg:mt-4 lg:mb-1 px-2 flex w-full flex-row justify-between text-xs opacity-40">
+      <span className="mt-2 flex w-full flex-row justify-between px-2 text-xs opacity-40 lg:mb-1 lg:mt-4">
         <span>{date}</span>
         <span>{hour}</span>
       </span>
 
       {/* Post Photo */}
-     
-        <img
-          src={photo}
-          alt={`Post by ${user.name}`}
-          className="shadow-lg h-[70%] w-full rounded-2xl object-cover"
-        />
- 
+
+      <img
+        src={photo}
+        alt={`Post by ${user.name}`}
+        className="h-[70%] w-full rounded-2xl object-cover shadow-lg"
+      />
 
       {/* Action Buttons */}
       <div className="mt-3 flex w-full items-start justify-start self-start justify-self-end">
@@ -72,7 +71,9 @@ function Post({ postData }: PostProps) {
             key={button.id}
             className="mr-2 flex items-center justify-center rounded-full bg-beigel p-2 text-brownl hover:text-brownd focus:outline-none"
           >
-            {button.id === "saveButton" && <FaBookmark className="text-sm lg:text-xl" />}
+            {button.id === "saveButton" && (
+              <FaBookmark className="text-sm lg:text-xl" />
+            )}
             {button.id === "sendMessageButton" && (
               <FaPaperPlane className="text-sm lg:text-xl" />
             )}

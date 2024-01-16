@@ -9,19 +9,16 @@ import NavTopdesk from "../Components/NavTopdesk";
 
 const Home: React.FC = () => {
   return (
-    <div className="h-screen flex flex-col items-center  pt-16 lg:mx-28 overflow-y-scroll lg:overflow-hidden">
+    <div className="flex h-screen flex-col items-center  overflow-y-scroll pt-16 lg:mx-28 lg:overflow-hidden">
       <NavTop />
-      < NavTopdesk />
-    
+      <NavTopdesk />
 
       {/* Main content container */}
 
-      <main className="flex flex-row w-full justify-center">
-        
+      <main className="flex w-full flex-row justify-center">
         <div className="flex lg:w-[70vw] ">
-          
           {/* Post components */}
-          <div className="flex lg:h-[90vh] flex-col w-full scrollbar-none lg:overflow-y-scroll">
+          <div className="scrollbar-none flex w-full flex-col lg:h-[90vh] lg:overflow-y-scroll">
             {postData.map((post, index) => (
               <Post key={index} postData={post} />
             ))}
@@ -29,8 +26,8 @@ const Home: React.FC = () => {
         </div>
 
         {/* Dashboard Chat */}
-    
-        <aside className="hidden w-[30vw] lg:flex overflow-hidden">
+
+        <aside className="hidden w-[30vw] overflow-hidden lg:flex">
           <MessageDashboard />
         </aside>
       </main>
