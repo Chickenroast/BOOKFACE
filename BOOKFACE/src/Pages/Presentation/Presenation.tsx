@@ -2,6 +2,8 @@ import "./style.css";
 import { motion, useInView, useAnimation, Variant } from "framer-motion";
 import { useEffect, useRef } from "react";
 import AnimatedPhone from "./AnimatedPhone";
+import { BiSolidCoffeeBean } from "react-icons/bi";
+import Sign from "../Sign";
 const imageAnimation = {
   hidden: {
     opacity: 0,
@@ -18,13 +20,13 @@ const imageAnimation = {
 const welcomeAnimation = {
   hidden: {
     opacity: 0,
-    x: -200,
+    x: -100,
   },
   visible: {
     opacity: 1,
     x: 0,
     transition: {
-      duration: 1,
+      duration: 0.75,
       delay: 1,
     },
   },
@@ -38,7 +40,7 @@ function Presenation() {
   const welcomeRef = useRef(null);
 
   const isImageInView = useInView(imageRef, { once: false });
-  const isWelcomeInView = useInView(welcomeRef, { once: true });
+  const isWelcomeInView = useInView(welcomeRef, { once: false });
 
   useEffect(() => {
     const showImage = async () => {
@@ -89,42 +91,57 @@ function Presenation() {
         >
           {/* AnimatedText component goes here */}
           <AnimatedText
-            once
-            text="HELLO YOU"
+            once={false}
+            text="HELLO YOU!"
             el="h1"
-            className="mt-10 text-center text-4xl lg:text-[100px]"
+            className="mt-8 lg:mt-12 text-center text-4xl lg:text-[80px] text-orange-900 font-medium"
           />
           <div className="flex h-full w-full flex-col justify-between lg:flex-row">
-            <motion.p
-              className="mt-12 flex h-full w-full px-10 text-lg lg:mt-32   lg:h-full lg:w-1/2 lg:px-0  lg:text-3xl"
+            <motion.h1
+              className="flex flex-col items-center mt-8 h-full w-full px-10 text-center lg:mt-32 lg:h-full  lg:w-1/2 lg:px-0 text-brownl "
               initial="hidden"
               animate={welcomeControls}
               variants={welcomeAnimation}
               ref={welcomeRef}
             >
-              Welcome to Espressify – Where Art and Coffee Collide! ☕️🎨🎵
-              Espressify is your creative hub, uniting art enthusiasts in a
-              vibrant community. Whether it's music, drawing, or any artistic
-              expression, connect and celebrate the diverse world of art with
-              like-minded individuals. Join us and express your passion!
-            </motion.p>
+              <p className="font-medium flex flex-col items-center text-2xl lg:text-4xl text-yellow-800 ">Welcome to Espressify 
+              <small className="lg:text-lg text-[14px] lg:mt-2 text-amber-800/60"> Where Art and Coffee Collide!</small>
+                </p> 
+             
+              <ul className="lg:text-xl mt-10 flex flex-col text-left text-[16px] text-brownl">
+                <li className="mb-2">
+                  <strong className="text-orange-900 flex items-center "><BiSolidCoffeeBean/> Follow Your Passion:</strong> Discover and follow art tags,
+                  curating your feed to stay inspired.
+                </li>
+                <li className="mt-2 mb-2 ">
+                  <strong className="text-orange-900 flex items-center"><BiSolidCoffeeBean/> Tag-Based Posting:</strong> Share your art by tagging posts, ensuring
+                  they reach the right audience.
+                </li>
+                <li>
+                <strong className="text-orange-900 flex items-center"><BiSolidCoffeeBean/> Artistic Connections:</strong> Connect with fellow creators through
+                  personalized messages. Dive into a world where art brings
+                  people together!
+                </li>
+              </ul>
+            </motion.h1>
             <AnimatedPhone />
           </div>
         </section>
 
-        <section className="flex min-h-[150vh] flex-col items-center justify-center">
+        <section className="flex max-h-[90vh] flex-col items-center mt-[20vh] overflow-hidden">
           <AnimatedText
             el="h2"
             text={[
-              "This is written on",
-              "a typing machine. Tick tick",
-              "tick tack tack...",
+              "Join Espressify now and immerse yourself in a vibrant community where art and coffee collide",
             ]}
-            className="text-4xl"
+            className="text-4xl mb-20 text-orange-950 text-center w-[80%] font-medium"
             repeatDelay={10000}
           />
+          <div className="h-full">
+           < Sign /></div>
         </section>
       </div>
+     
     </main>
   );
 }

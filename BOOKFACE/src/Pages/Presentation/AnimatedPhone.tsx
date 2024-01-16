@@ -14,7 +14,7 @@ const phoneAnimation = {
     y: 0,
     transition: {
       duration: 1,
-      delay:2
+      delay:1.5
     },
   },
 };
