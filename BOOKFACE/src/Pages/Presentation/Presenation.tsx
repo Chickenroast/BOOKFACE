@@ -1,9 +1,9 @@
-import "./style.css";
+
 import { motion, useInView, useAnimation, Variant } from "framer-motion";
 import { useEffect, useRef } from "react";
 import AnimatedPhone from "./AnimatedPhone";
 import { BiSolidCoffeeBean } from "react-icons/bi";
-import Sign from "../Sign";
+import Sign from "./Sign";
 const imageAnimation = {
   hidden: {
     opacity: 0,
@@ -73,12 +73,12 @@ function Presenation() {
   }, [isWelcomeInView]);
 
   return (
-    <main className="text-brownd">
-      <div className="mx-auto max-w-6xl pt-14">
+    <main className="overflow-hidden text-brownd">
+      <div className="mx-auto max-w-6xl ">
         <section className="flex h-screen justify-center" ref={imageRef}>
           <motion.img
             src="/espressify.svg"
-            className="h-full"
+            className="h-full mr-5 lg:mr-0"
             alt=""
             initial="hidden"
             animate={imageControls}
@@ -94,33 +94,45 @@ function Presenation() {
             once={false}
             text="HELLO YOU!"
             el="h1"
-            className="mt-8 lg:mt-12 text-center text-4xl lg:text-[80px] text-orange-900 font-medium"
+            className="mt-4 text-center text-4xl font-medium text-orange-900 md:text-6xl lg:mt-12 lg:text-[80px]"
           />
-          <div className="flex h-full w-full flex-col justify-between lg:flex-row">
+          <div className="flex h-full w-full flex-col justify-start lg:flex-row">
             <motion.h1
-              className="flex flex-col items-center mt-8 h-full w-full px-10 text-center lg:mt-32 lg:h-full  lg:w-1/2 lg:px-0 text-brownl "
+              className="mt-4 flex w-full flex-col items-center px-10 text-center text-brownl lg:mt-32  lg:h-full lg:w-1/2 lg:px-0 "
               initial="hidden"
               animate={welcomeControls}
               variants={welcomeAnimation}
               ref={welcomeRef}
             >
-              <p className="font-medium flex flex-col items-center text-2xl lg:text-4xl text-yellow-800 ">Welcome to Espressify 
-              <small className="lg:text-lg text-[14px] lg:mt-2 text-amber-800/60"> Where Art and Coffee Collide!</small>
-                </p> 
-             
-              <ul className="lg:text-xl mt-10 flex flex-col text-left text-[16px] text-brownl">
+              <p className="flex flex-col items-center text-2xl font-medium text-yellow-800 md:text-4xl lg:text-4xl ">
+                Welcome to Espressify
+                <small className="text-[14px] text-amber-800/60 md:mt-2 md:text-lg">
+                  {" "}
+                  Where Art and Coffee Collide!
+                </small>
+              </p>
+
+              <ul className="mt-4 flex flex-col text-left text-[16px] text-brownl md:text-xl">
                 <li className="mb-2">
-                  <strong className="text-orange-900 flex items-center "><BiSolidCoffeeBean/> Follow Your Passion:</strong> Discover and follow art tags,
-                  curating your feed to stay inspired.
+                  <strong className="flex items-center text-orange-900 ">
+                    <BiSolidCoffeeBean /> Follow Your Passion:
+                  </strong>{" "}
+                  Discover and follow art tags, curating your feed to stay
+                  inspired.
                 </li>
-                <li className="mt-2 mb-2 ">
-                  <strong className="text-orange-900 flex items-center"><BiSolidCoffeeBean/> Tag-Based Posting:</strong> Share your art by tagging posts, ensuring
-                  they reach the right audience.
+                <li className="mb-2 mt-2 ">
+                  <strong className="flex items-center text-orange-900">
+                    <BiSolidCoffeeBean /> Tag-Based Posting:
+                  </strong>{" "}
+                  Share your art by tagging posts, ensuring they reach the right
+                  audience.
                 </li>
                 <li>
-                <strong className="text-orange-900 flex items-center"><BiSolidCoffeeBean/> Artistic Connections:</strong> Connect with fellow creators through
-                  personalized messages. Dive into a world where art brings
-                  people together!
+                  <strong className="flex items-center text-orange-900">
+                    <BiSolidCoffeeBean /> Artistic Connections:
+                  </strong>{" "}
+                  Connect with fellow creators through personalized messages.
+                  Dive into a world where art brings people together!
                 </li>
               </ul>
             </motion.h1>
@@ -128,20 +140,18 @@ function Presenation() {
           </div>
         </section>
 
-        <section className="flex max-h-[90vh] flex-col items-center mt-[20vh] overflow-hidden">
+        <section className="mt-[10vh] flex min-h-[100vh] flex-col items-center justify-start overflow-hidden">
           <AnimatedText
             el="h2"
             text={[
-              "Join Espressify now and immerse yourself in a vibrant community where art and coffee collide",
+              "Join Espressify now and immerse yourself in a community where art and coffee collide",
             ]}
-            className="text-4xl mb-20 text-orange-950 text-center w-[80%] font-medium"
+            className="mt-10 w-[92%] text-center text-2xl font-medium text-orange-950 md:text-4xl lg:mb-16 lg:w-[80%]"
             repeatDelay={10000}
           />
-          <div className="h-full">
-           < Sign /></div>
+          <Sign />
         </section>
       </div>
-     
     </main>
   );
 }

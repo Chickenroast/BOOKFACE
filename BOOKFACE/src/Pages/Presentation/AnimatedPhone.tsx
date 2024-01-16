@@ -35,7 +35,7 @@ const AnimatedPhone = () => {
     <motion.img
       ref={ref}
       src="phone.svg"
-      className=" w-full h-1/2 lg:h-[80vh] self-end"
+      className=" w-full h-2/5 lg:h-[80vh] self-end md:h-[50vh]"
       alt=""
       initial="hidden"
       animate={controls}

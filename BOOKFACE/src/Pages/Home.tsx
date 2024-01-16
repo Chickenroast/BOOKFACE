@@ -9,7 +9,7 @@ import NavTopdesk from "../Components/NavTopdesk";
 
 const Home: React.FC = () => {
   return (
-    <div className="flex h-screen flex-col items-center  overflow-y-scroll pt-16 lg:mx-28 lg:overflow-hidden">
+    <div className="flex h-screen flex-col items-center pb-[100px] lg:pb-0 overflow-y-scroll pt-16 lg:mx-28 lg:overflow-hidden">
       <NavTop />
       <NavTopdesk />
 
