@@ -5,8 +5,7 @@
 
 body{
     background-color: #E5E5CB;
-    height: 100vh;
-    overflow: hidden;
+   
 }
 
 @media (max-width: 768px) {
