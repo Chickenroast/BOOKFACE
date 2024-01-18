@@ -120,10 +120,10 @@ const MessageDashboard: React.FC = () => {
                             }`}
                           />
                           <p
-                            className={`m-2 mb-10 bg-beigel px-5 py-2 flex w-[80%]  text-lg shadow-md  ${
+                            className={`m-2 mb-10 bg-beigel px-4 py-2 flex w-[80%] items-center justify-center  text-lg shadow-md  ${
                               isCurrentUser
-                                ? "rounded-l-full rounded-t-full bg-brownl text-beigel"
-                                : "rounded-r-full rounded-t-full text-brownl "
+                                ? "rounded-l-2xl rounded-t-2xl bg-brownl text-beigel"
+                                : "rounded-r-2xl rounded-t-2xl text-brownl "
                             }`}
                           >
                             {`${message.text}`}

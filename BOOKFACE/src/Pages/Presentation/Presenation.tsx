@@ -106,7 +106,7 @@ function Presenation() {
             >
               <p className="flex flex-col items-center text-2xl font-medium text-yellow-800 md:text-4xl lg:text-4xl ">
                 Welcome to Espressify
-                <small className="text-[14px] text-amber-800/60 md:mt-2 md:text-lg">
+                <small className="text-[14px] text-amber-800/60 md:mt-2 md:text-lg lg:mb-5">
                   {" "}
                   Where Art and Coffee Collide!
                 </small>
