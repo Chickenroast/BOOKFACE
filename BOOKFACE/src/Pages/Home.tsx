@@ -6,6 +6,7 @@ import NavTop from "../Components/NavTop";
 import Footer from "../Components/Footer";
 import MessageDashboard from "./Message";
 import NavTopdesk from "../Components/NavTopdesk";
+import CookieBanner from "../Components/Cookies";
 
 const Home: React.FC = () => {
   return (
@@ -18,7 +19,11 @@ const Home: React.FC = () => {
       <main className="flex w-full flex-row justify-center">
         <div className="flex lg:w-[70vw] ">
           {/* Post components */}
+
+          <div className="flex w-full flex-col scrollbar-none lg:h-[90vh] lg:overflow-y-scroll">
+
           <div className="scrollbar-none flex w-full flex-col lg:h-[90vh] overflow-hidden lg:overflow-y-scroll">
+
             {postData.map((post, index) => (
               <Post key={index} postData={post} />
             ))}
@@ -33,6 +38,7 @@ const Home: React.FC = () => {
       </main>
 
       <Footer />
+      <CookieBanner />
     </div>
   );
 };
