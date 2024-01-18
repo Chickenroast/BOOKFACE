@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
 import Select from "react-select";
-import { tags } from "../tags.ts";
+import { tags } from "../../tags.ts";
 import { Link } from "react-router-dom";
-
 enum FormState {
   First,
   Second,
@@ -97,20 +95,16 @@ function Sign() {
   };
 
   return (
-    <div className="h-screen w-screen">
+    <div className="flex flex-col items-center justify-center">
       {/* <img
         src="shape1.svg"
         className="w-full h-full z-[-10] absolute rotate-45 opacity-70"
       /> */}
-      <div className="flex flex-col md:items-center md:justify-center ">
-        <h1 className="p-5 font-quicksand text-5xl lg:mt-5">SIGNUP</h1>
+      <div className="flex flex-col md:items-center md:justify-center mt-10 ">
       </div>
       {/* //---------------------------------------------------------------------------------------FIRST FORM*/}
       {formState === FormState.First && (
         <div className="flex flex-col md:items-center md:justify-center ">
-          <p className="p-5 pt-1 font-quicksand">
-            Welcome, please insert all your information for the first form.
-          </p>
           <div className="m-5 flex flex-col items-center justify-center rounded-lg bg-beiged shadow-md lg:mx-auto">
             <form className=" p-5" onSubmit={handleSubmitFirstForm}>
               <div className=" p-5">
