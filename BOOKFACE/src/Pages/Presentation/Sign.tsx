@@ -28,7 +28,6 @@ function Sign() {
     password: "",
     confirmPassword: "",
     selectedTags: [] as string[],
-    profileImageType: "string",
     profileImage: "",
     name: "",
     bio: "",
@@ -100,8 +99,7 @@ function Sign() {
         src="shape1.svg"
         className="w-full h-full z-[-10] absolute rotate-45 opacity-70"
       /> */}
-      <div className="flex flex-col md:items-center md:justify-center mt-10 ">
-      </div>
+      <div className="mt-10 flex flex-col md:items-center md:justify-center "></div>
       {/* //---------------------------------------------------------------------------------------FIRST FORM*/}
       {formState === FormState.First && (
         <div className="flex flex-col md:items-center md:justify-center ">

@@ -4,20 +4,18 @@ export default {
   theme: {
     extend: {
       screens: {
-        '3xl': '2000px',
+        "3xl": "2000px",
       },
       colors: {
-         brownd: '#1A120B',
-        brownl: '#3E2723',
-        beiged: '#F8F4E1',
-        beigel: '#E5E5CB',
+        brownd: "#1A120B",
+        brownl: "#3E2723",
+        beiged: "#F8F4E1",
+        beigel: "#E5E5CB",
       },
       fontFamily: {
         quicksand: "Quicksand, sans-serif",
       },
     },
   },
-  plugins: [
-    require ('tailwind-scrollbar'),
-],
+  plugins: [require("tailwind-scrollbar")],
 };
